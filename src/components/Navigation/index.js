@@ -23,7 +23,7 @@ const Navigation = () => (
       }
     </AuthUserContext.Consumer>
   </div>
-  
+
 );
 
 const NavigationAuth = (props) => {
@@ -33,7 +33,35 @@ const NavigationAuth = (props) => {
 
   return (
     <div>
-    <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">React & Firebase</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink><Link to={ROUTES.LANDING}>Landing</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to={ROUTES.HOME}>Home</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to={ROUTES.ACCOUNT}>Account</Link></NavLink>
+            </NavItem>
+          </Nav>
+          <NavbarText><SignOutButton /></NavbarText>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
+}
+
+
+const NavigationNonAuth = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+  return (
+  <Navbar color="light" light expand="md">
     <NavbarBrand href="/">React & Firebase</NavbarBrand>
     <NavbarToggler onClick={toggle} />
     <Collapse isOpen={isOpen} navbar>
@@ -42,29 +70,13 @@ const NavigationAuth = (props) => {
           <NavLink><Link to={ROUTES.LANDING}>Landing</Link></NavLink>
         </NavItem>
         <NavItem>
-          <NavLink><Link to={ROUTES.HOME}>Home</Link></NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink><Link to={ROUTES.ACCOUNT}>Account</Link></NavLink>
+          <NavLink><Link to={ROUTES.SIGN_IN}>Sign In</Link></NavLink>
         </NavItem>
       </Nav>
-      <NavbarText><SignOutButton /></NavbarText>
     </Collapse>
   </Navbar>
-    </div>
   );
 }
 
-
-const NavigationNonAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
-  </ul>
-);
 
 export default Navigation;

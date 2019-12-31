@@ -9,7 +9,7 @@ import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
   <div className="container">
-    <h1>SignIn</h1>
+    <h1>Please sign in</h1>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
