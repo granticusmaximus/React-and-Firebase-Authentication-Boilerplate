@@ -39,13 +39,13 @@ const NavigationAuth = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink><Link to={ROUTES.LANDING}>Landing</Link></NavLink>
-            </NavItem>
-            <NavItem>
               <NavLink><Link to={ROUTES.HOME}>Home</Link></NavLink>
             </NavItem>
             <NavItem>
               <NavLink><Link to={ROUTES.ACCOUNT}>Account</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to={ROUTES.ADMIN}>Admin</Link></NavLink>
             </NavItem>
           </Nav>
           <NavbarText><SignOutButton /></NavbarText>

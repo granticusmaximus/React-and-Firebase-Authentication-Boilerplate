@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
@@ -16,23 +16,27 @@ const Navigation = () => (
   </div>
 );
 
-const NavigationAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
-      <SignOutButton />
-    </li>
-  </ul>
-);
+const NavigationAuth = (props) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+
+  return (
+    <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+      <DropdownToggle caret>
+        Important Items
+        </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem header>Log Out?</DropdownItem>
+        <DropdownItem><SignOutButton /></DropdownItem>
+        <DropdownItem divider />
+        <DropdownItem><Link to={ROUTES.LANDING}>Landing</Link></DropdownItem>
+        <DropdownItem><Link to={ROUTES.HOME}>Home</Link></DropdownItem>
+        <DropdownItem><Link to={ROUTES.ACCOUNT}>Account</Link></DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+}
 const NavigationNonAuth = () => (
   <ul>
     <li>

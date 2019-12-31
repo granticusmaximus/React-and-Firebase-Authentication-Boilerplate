@@ -10,6 +10,7 @@ const AccountPage = () => (
       <div className="container">
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
+        <hr/>
         <PasswordChangeForm />
       </div>
     )}
