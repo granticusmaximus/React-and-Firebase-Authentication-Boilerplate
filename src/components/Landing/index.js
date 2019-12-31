@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Landing = () => (
-  <div>
+  <div className="container">
     <h1>Landing</h1>
   </div>
 );
